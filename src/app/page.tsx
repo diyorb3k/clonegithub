@@ -47,8 +47,11 @@ import { useQuery } from "@tanstack/react-query";
 import dateFormat from "dateformat";
 import { useState } from "react";
 export default function Home() {
-  const [userName,setUserName]=useState("octocat")
-  
+  const [userName,setUserName]=useState("diyorb3k")
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+
+
   const { isLoading, error, data,refetch } = useQuery<GitHubuser>({
     queryKey: ["repoData"],
     queryFn: () =>
@@ -68,7 +71,7 @@ refetch();
       {/* container */}
       <div className="border mx-auto flex w-full max-w-[600px] flex-col gap-8 rounded p-2">
         <section className="flex justify-between gap-3">
-          <p className="text-xl font-semibold">devfinder</p>
+          <p className="text-xl font-semibold">diyorb3k</p>
           <DarkAndLightBtn />
         </section>
 

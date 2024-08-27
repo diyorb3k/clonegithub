@@ -1,5 +1,5 @@
-import { hostname } from 'os';
-import path from 'path';
+// import { hostname } from 'os';
+// import path from 'path';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

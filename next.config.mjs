@@ -1,6 +1,3 @@
-// import { hostname } from 'os';
-// import path from 'path';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -8,7 +5,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "avatars.githubusercontent.com",
-        
+        pathname: "/**", // Barcha yo'llarga ruxsat berish uchun
       },
     ],
   },

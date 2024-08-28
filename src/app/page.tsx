@@ -47,24 +47,24 @@ import { useQuery } from "@tanstack/react-query";
 import dateFormat from "dateformat";
 import { useState } from "react";
 export default function Home() {
-  const [userName,setUserName]=useState("diyorb3k")
+  const [userName, setUserName] = useState("diyorb3k");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
-
-
-  const { isLoading, error, data,refetch } = useQuery<GitHubuser>({
+  const { isLoading, error, data, refetch } = useQuery<GitHubuser>({
     queryKey: ["repoData"],
     queryFn: () =>
-      fetch(`https://api.github.com/users/${userName}`).then((res) => res.json()),
+      fetch(`https://api.github.com/users/${userName}`).then((res) =>
+        res.json()
+      ),
   });
   console.log("data-", data);
 
   if (isLoading) return "Loading...";
 
-function handleSubmit(e:React.FormEvent<HTMLFormElement>){
-e.preventDefault();
-refetch();
-}
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    refetch();
+  }
 
   return (
     <div className="flex min-h-screen w-full light:bg-stone-100 dark:bg-slate-900 p-1.5 sm:p-4 pt-12 sm:pt-12 transition-all ">
@@ -77,7 +77,11 @@ refetch();
 
         {/* search section */}
         <section className="flex flex-col gap-6">
-          <SearchAndBtn  Onchange={(e)=>setUserName(e.target.value)} onSubmit={handleSubmit} value={userName}/>
+          <SearchAndBtn
+            Onchange={(e) => setUserName(e.target.value)}
+            onSubmit={handleSubmit}
+            value={userName}
+          />
           <main className="flex w-full flex-col gap-5 rounded-lg bg-white dark:bg-slate-900 px-4 py-8 min-h-[200px]">
             <section className="flex gap-4 w-full">
               <Image
@@ -155,9 +159,10 @@ refetch();
                       <IoIosLink className="text-xl" />
                       {(
                         <Link
-                        title="data?.blog"
+                          title="data?.blog"
                           className="hover:underline opacity-60 max-w-[200px] overflow-hidden text-ellipsis"
-                          href={data?.blog ?? "#"}>
+                          href={data?.blog ?? "#"}
+                        >
                           {data?.blog}
                         </Link>
                       ) ?? (
@@ -171,18 +176,22 @@ refetch();
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div className=" flex gap-2 items-center">
                       <FaTwitter className="text-xl" />
-                      <p>{data?.company ?? (
-                        <span className="opacity-60">Not Available</span>
-                      )}</p>
+                      <p>
+                        {data?.company ?? (
+                          <span className="opacity-60">Not Available</span>
+                        )}
+                      </p>
                     </div>
                   </div>
                   {/* 4 */}
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div className=" flex gap-2 items-center">
                       <BsFillBuildingsFill className="text-xl" />
-                      <p>{data?.company ?? (
-                        <span className="opacity-60">Not Available</span>
-                      )}</p>
+                      <p>
+                        {data?.company ?? (
+                          <span className="opacity-60">Not Available</span>
+                        )}
+                      </p>
                     </div>
                   </div>
                 </div>
